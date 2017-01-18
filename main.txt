@@ -1,5 +1,12 @@
-## fichier de main (insertion David)
+fichier de main (insertion David)
 une ligne de Fred
 une ligne de Chris
 une ligne de JulienG
 test
+
+fichier de main (insertion David)
+une ligne de Frédéric test credential Windows
+une ligne de Chris
+une ligne de Damien
+une ligne de Julien
+
