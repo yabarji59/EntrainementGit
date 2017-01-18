@@ -1,4 +1,8 @@
-## fichier de main (insertion David)
+﻿## fichier de main (insertion David)
+
 une ligne de Fred
 une ligne de Chris
 une ligne de yoann
+une ligne de Frédéric
+une ligne de Chris
+
