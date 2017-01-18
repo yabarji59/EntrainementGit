@@ -1,8 +1,11 @@
-﻿## fichier de main (insertion David)
+## fichier de main (insertion David)
+une ligne de Frédéric test credential Windows
 une ligne de Frédéric test credential windows
 une ligne de Chris modifiée
+une ligne de JulienG
 une ligne de Damien
 une ligne de Dorian
 une ligne de Julien
 Je suis dans feature/julien et je modifie ce fichier à 10h54.
 une ligne de Vona
+une ligne de gérald
