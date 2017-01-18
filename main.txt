@@ -1,5 +1,6 @@
 ## fichier de main (insertion David)
-une ligne de Frédéric
+une ligne de Frédéric test credential Windows
 une ligne de Chris
+une ligne de Damien
+une ligne de Julien
 une ligne de Dorian
-
