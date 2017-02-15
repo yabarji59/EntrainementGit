@@ -8,4 +8,17 @@ ajout d'une ligne supplémentaire depuis develop
 Les lardons c'est la vie !
 ca marche ca marche pas ?? Suspens !
 Modif feateures/mohamedSellahi
+<<<<<<< HEAD
+ajout d'une autre ligne
+Bulbizarre
+Herbizarre
+Florizarre
+Salam�che
+Reptincel
+Dracaufeu
+Carapuce
+Carabaffe
+Tortank
+=======
 Ajout de Don Alejandro
+>>>>>>> e77eb163fa2879d046325405d8025f6ea2b7f9fa
