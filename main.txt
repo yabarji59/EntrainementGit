@@ -1,8 +1,12 @@
 ## fichier de main (insertion david)
 
-Mouahhhahhhhahhhh
+Mouahhhahhhhahhh		h
 
 """ ajout d'une ligne 
 ajout d'un feature/login 
 ajout d'une autre ligne
+<<<<<<< HEAD
 ajout d'une ligne supplémentaire depuis develop
+=======
+ca marche ca marche pas ?? Suspens !
+>>>>>>> feature/Florian
