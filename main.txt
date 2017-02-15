@@ -1,3 +1,7 @@
+﻿
+﻿
+salut 1
+
 ## fichier de main (insertion david)
 
 Mouahhhahhhhahhh		h
@@ -5,13 +9,7 @@ Mouahhhahhhhahhh		h
 """ ajout d'une ligne 
 ajout d'un feature/login 
 ajout d'une autre ligne
-<<<<<<< HEAD
 ajout d'une ligne supplémentaire depuis develop
-<<<<<<< HEAD
-
 Les lardons c'est la vie !
-=======
-=======
 ca marche ca marche pas ?? Suspens !
->>>>>>> feature/Florian
->>>>>>> 345601de7d325919eee296b3107231aef0a3b82f
+Modif feateures/mohamedSellahi
