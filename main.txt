@@ -1,2 +1,11 @@
 ## fichier de main (insertion david)
-""" ajout d'une ligne 
+ajout d'une autre ligne
+Bulbizarre
+Herbizarre
+Florizarre
+Salamèche
+Reptincel
+Dracaufeu
+Carapuce
+Carabaffe
+Tortank
