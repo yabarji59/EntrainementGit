@@ -1,4 +1,4 @@
-﻿﻿salut 1
+﻿﻿﻿salut 1
 ## fichier de main (insertion david)
 Mouahhhahhhhahhh		h
 """ ajout d'une ligne 
@@ -6,10 +6,8 @@ ajout d'un feature/login
 ajout d'une autre ligne
 ajout d'une ligne supplémentaire depuis develop
 Les lardons c'est la vie !
-<<<<<<< HEAD
 ca marche ca marche pas ?? Suspens !
 Modif feateures/mohamedSellahi
-<<<<<<< HEAD
 ajout d'une autre ligne
 Bulbizarre
 Herbizarre
@@ -20,10 +18,11 @@ Dracaufeu
 Carapuce
 Carabaffe
 Tortank
-=======
 Ajout de Don Alejandro
->>>>>>> e77eb163fa2879d046325405d8025f6ea2b7f9fa
-=======
+lalalala
 
+<<<<<<< HEAD
 Salut les gens !!
 >>>>>>> philippe
+=======
+>>>>>>> 6a32aa620ac9cfb8895602a0f0b4e3d31363d8f0
