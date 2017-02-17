@@ -1,5 +1,6 @@
 ﻿﻿﻿salut 1
 ## fichier de main (insertion david)
+<<<<<<< HEAD
 Mouahhhahhhhahhh		h
 """ ajout d'une ligne 
 ajout d'un feature/login 
@@ -21,8 +22,4 @@ Tortank
 Ajout de Don Alejandro
 lalalala
 
-<<<<<<< HEAD
-Salut les gens !!
->>>>>>> philippe
-=======
->>>>>>> 6a32aa620ac9cfb8895602a0f0b4e3d31363d8f0
+
