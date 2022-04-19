@@ -1,0 +1,225 @@
+Fork branch sync with upstream
+348  cd handson-basic/
+  351  mkdir fork-hands-on
+  352  cd fork-hands-on/
+  353  git clone  https://gitlab.com/divang/git-hands-on.git 
+  355  cd git-hands-on/
+  359  git remote add upstream https://github.com/github06022021/handson-basic.git [Set the upstream]
+  360  git remote -v
+  361  git fetch upstream [Fetch from upstream/orginal repo]
+  364  git pull upstream main  
+  368  git push 
+ 
+ 
+Revert
+
+  395  git log --oneline -n 10
+  397  vi F7.java                           [added the buggy configuration or code]
+  399  git add F7.java 
+  401  git commit -m "Buggy code has added" [committed the buggy configuration or code]
+  402  git push                             [pushed to remote repo with the buggy configuration or code]
+  403  git log --oneline -n 10
+  404  vi F8.java                            [New feature which does not have any issue] 
+  405  git add F8.java 
+  406  git commit -m "Feature 8 added"
+  409  git log --oneline -n 5                [pick the commit id which has buggy code] 
+  408  git revert 0d8d545                    [*** revert that perticular commit] 
+  410  git push
+  411  git log --oneline -n 5
+
+Reset
+   --hard
+    429  vi F8.java  [do modification 1 ]
+    431  git add F8.java 
+    432  git commit -m "F8.1" [do local commit]
+    433  vi F8.java  [do more modification 2]
+    434  git add F8.java 
+    435  git commit -m "F8.2" [do local commit]
+    441  vi F8.java [do more modification 3]
+    443  git add F8.java  [***Staged this changes. Do not commit]
+    448  vi F1.java [do more modification on F1.java file]
+    449  git status [***Do not stage at all. Unstaged file]
+    450  git log --oneline -n 5 [We want to hard reset on a commitId.]
+ ***451  git reset --hard ac2db39. [It reset/clean my stage area and also unstage area. Untracked files are not effected by hard reset.]
+    452  git status  [nothing is on stage and unsatge area]
+
+  --soft 
+        labsuser@ubuntu1804:~/handson-basic$ git log --oneline -n 10
+        75381e5 (HEAD -> main) F8.1
+        99b64e4 Revert "Removed F8.java"
+        74e7183 Removed F8.java
+        b6ed15a Revert "Buggy code has added"
+        00a5011 Feature 8 added
+        0d8d545 Buggy code has added
+        9e59dbc F7
+        8462e05 F6
+        a8bfb85 (tag: h, develop) Feature F4
+        7e863a1 Feature 3
+        labsuser@ubuntu1804:~/handson-basic$ git reset --soft 99b64e4. [****]
+        labsuser@ubuntu1804:~/handson-basic$ git status
+        On branch main
+        Your branch is behind 'origin/main' by 2 commits, and can be fast-forwarded.
+          (use "git pull" to update your local branch)
+
+        Changes to be committed:
+          (use "git reset HEAD <file>..." to unstage)
+
+                modified:   F8.java. [***]
+                new file:   F9.java. [***] 
+
+        Changes not staged for commit:
+          (use "git add <file>..." to update what will be committed)
+          (use "git checkout -- <file>..." to discard changes in working directory)
+
+                modified:   F8.java
+
+        Untracked files:
+          (use "git add <file>..." to include in what will be committed)
+
+                1
+
+        labsuser@ubuntu1804:~/handson-basic$ ls
+        1  1.log  app.log  conf.txt  F1.java  F2.java  F3.java  F4.java  F6.java  F7.java  F8.java  F9.java  logs
+        labsuser@ubuntu1804:~/handson-basic$ git reset --soft 8462e05 [****]
+        labsuser@ubuntu1804:~/handson-basic$ ls
+        1  1.log  app.log  conf.txt  F1.java  F2.java  F3.java  F4.java  F6.java  F7.java  F8.java  F9.java  logs
+        labsuser@ubuntu1804:~/handson-basic$ git status
+        On branch main
+        Your branch is behind 'origin/main' by 8 commits, and can be fast-forwarded.
+          (use "git pull" to update your local branch)
+
+        Changes to be committed:
+          (use "git reset HEAD <file>..." to unstage)
+
+                new file:   F7.java. [****]
+                new file:   F8.java. [****] 
+                new file:   F9.java.  [****]
+
+        Changes not staged for commit:
+          (use "git add <file>..." to update what will be committed)
+          (use "git checkout -- <file>..." to discard changes in working directory)
+
+                modified:   F8.java
+
+        Untracked files:
+          (use "git add <file>..." to include in what will be committed)
+
+                1
+
+  --mixed
+          labsuser@ubuntu1804:~/handson-basic$ vi F9.java 
+          labsuser@ubuntu1804:~/handson-basic$ git add F9.java [*** Staged]
+          labsuser@ubuntu1804:~/handson-basic$ vi F8.java  [*** UnStaged]
+          labsuser@ubuntu1804:~/handson-basic$ git status
+          On branch main
+          Your branch is up to date with 'origin/main'.
+
+          Changes to be committed:
+            (use "git reset HEAD <file>..." to unstage)
+
+                  modified:   F9.java [***]
+
+          Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                  modified:   F8.java [***]
+
+          labsuser@ubuntu1804:~/handson-basic$ git log --oneline -n 5
+          016809f (HEAD -> main, origin/main) F8
+          2ad0511 Merge branch 'main' of https://github.com/github06022021/handson-basic into main
+          97a618a F8
+          12c111b Manually reset the last 4 commits.
+          ac2db39 F8.2
+          labsuser@ubuntu1804:~/handson-basic$ git reset --mixed 016809f. [*** mixed reset. It moves all Staged files into Unstage]
+          Unstaged changes after reset:
+          M       F8.java     [***]
+          M       F9.java.    [***]
+          labsuser@ubuntu1804:~/handson-basic$ git status
+          On branch main
+          Your branch is up to date with 'origin/main'.
+
+          Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                  modified:   F8.java [***]
+                  modified:   F9.java.[***] 
+
+          no changes added to commit (use "git add" and/or "git commit -a")
+          labsuser@ubuntu1804:~/handson-basic$ 
+ 
+Rebase
+      main :  F1->F2->F3->F5->F6
+      Feature:          ->F4
+      Rebase: F1->F2->F3->F5->F6->F4
+      
+
+        Developer 1:
+              Feature branch
+                git branch -b F2 main
+                git log
+                >>>>
+                  c6c03b7 F13
+                  af9cd8c F10-F2
+                  036890a F12
+                  be06621 F11
+                 
+                 git rebase origin/main
+                 F10.java has conflit
+                 git mergetool
+                 [manually resolve the confit]
+                 git add F10.java
+                 git rebase --continue
+                 git push
+                 
+                 git log
+                  >>>
+                    ca4c168 (HEAD -> F2, origin/F2) Merge branch 'F2' of https://github.com/github06022021/handson-basic into F2
+               
+        Developer 2:
+              git push origin main
+              git log 
+              >>>
+                42f7693 (origin/main) F14 [***]
+                6f97e16 F10-main          [***]
+                036890a F12
+                be06621 F11
+
+Rebase Interactive
+    git rebase -i HEAD~10
+  
+    output in VI>>>
+          pick 016809f F8
+          pick d5bfe2b F10
+          pick be06621 F11
+          pick 7a7cf02 F14-Combined
+          pick a6b8dab F12
+          pick bd07d7c Fixed F10.java
+          pick 05b5c2c F13
+          pick 2b6040b F15
+          pick e766b4e F16
+          pick a1dc806 F14-F2
+
+          # Rebase 2ad0511..a1dc806 onto 2ad0511 (10 commands)
+          #
+          # Commands:
+          # p, pick = use commit
+          # r, reword = use commit, but edit the commit message
+          # e, edit = use commit, but stop for amending
+          # s, squash = use commit, but meld into previous commit
+          # f, fixup = like "squash", but discard this commit's log message
+          # x, exec = run command (the rest of the line) using shell
+          # d, drop = remove commit
+          #
+          # These lines can be re-ordered; they are executed from top to bottom.
+          #
+          # If you remove a line here THAT COMMIT WILL BE LOST.
+          #
+          # However, if you remove everything, the rebase will be aborted.
+          #
+          # Note that empty commits are commented out
+          ~                                                 
+
+
+GitFlow workflow
