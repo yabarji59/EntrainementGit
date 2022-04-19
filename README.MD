@@ -1,4 +1,4 @@
-# atelier-git
+# EntrainementGit
 Répertoire d'entrainement pour se familiariser à l'utilisation de Git.
 
 ## Github par la pratique
