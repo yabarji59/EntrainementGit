@@ -1,0 +1,56 @@
+- Github Remote repository creation	
+- Git configuration
+	- local [.git/config]
+		$git config --local user.name 'Divang Sharma' 
+	- global [~/.gitconfig ]
+		$git config --global core.excludesfile ~/.gitignore_all_repo 
+		$git config --global user.name 'abc'
+		$git config --global user.email 'abc@xyz.com' 
+	- system [/etc/gitconfig]
+		$sudo git config --system commit.template /home/labsuser/commit-template.txt
+- Repo initialization 
+	$git init
+- Branch creation
+	$git branch master
+- Add file/Staging
+	$git add README.md
+- Commit changes
+	$git commit -m "Initial Commit"
+- Create a branch 
+	$git branch -M master 
+	or
+	$git checkout -b master
+- Track remote repo / Add 
+	$git remote add developer https://github.com/github06022021/handson-basic.git 	
+- Setup upstream 		
+	$git push -u developer master
+- Delete brach
+	$git push origin :<branchname> [remote]
+	$git branch -D <branchname> [local]
+- Store password
+	$git config --global credential.helper store
+- Ignore files to commit: 
+	.gitignore file
+- Commit template
+	sudo git config --system commit.template /home/labsuser/commit-template.txt
+- Clone repo
+	$git clone <git repo>
+- Pull repo
+	$git pull
+- Merge branch
+	$git merge <branch>
+- Log
+	$git log --oneline
+	$git log -q
+	$git log -p
+	$git log --stat --summary
+
+- Diff [Tracking is the ability to identify changes between the different versions of the same file, spread across various repositories.]
+	$git diff --staged / $git diff HEAD
+	$git diff <commit hashcode>
+	$git diff --cached
+- Stash
+	$git stash
+	$git stash list
+	$git stash apply
+	$git stash apply <id>
