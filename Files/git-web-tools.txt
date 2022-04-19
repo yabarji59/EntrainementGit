@@ -1,0 +1,21 @@
+BitBucket Gui  [https://bitbucket.org/]
+  - repo creation
+  - add file
+  - pull
+  - branching
+  - create Pull request
+  - Branch model
+  - CI/CD Pipeline
+  - Development
+  - Create User
+  - Create Group
+  - Permission
+  - Web hock
+
+Gitlab [gitlab.com]
+
+SVN migration:
+ https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git
+ 
+Intellij Download
+  https://www.jetbrains.com/idea/download/#section=mac
