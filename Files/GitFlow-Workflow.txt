@@ -1,0 +1,49 @@
+Final Project snap:-
+
+git checkout -b master
+git checkout -b develop master
+
+Creating a feature branch
+	git checkout -b myfeature develop
+	[Implement Feature, add to Stage, Commit, Push to Feature branch]
+	git checkout develop
+	git merge --no-ff myfeature. [ --no-ff, to rack all merge commit]
+	[Merge conflit, resolve manually, add to Stage, Commit, Push to Feature branch]
+	git branch -d myfeature
+	git push origin develop
+
+
+Creating a release branch 
+	git checkout -b release-1.2 develop
+	echo "Released feature 1.2" >>change.txt
+	git add change.txt
+	git commit -a -m "Bumped version number to 1.2"
+
+
+Finishing a release branch 
+	git checkout master
+	git merge --no-ff release-1.2
+	git tag -a 1.2
+
+	git checkout develop
+	git merge --no-ff release-1.2
+	git branch -d release-1.2
+
+
+Creating the hotfix branch 
+	git checkout -b hotfix-1.2.1 master
+	echo "Released bug 1.2" >>change.txt
+	git add change.txt
+	git commit -a -m "Bumped version number to 1.2.1"
+	<fix bug>
+	git commit -m "Fixed severe production problem"
+
+Finishing a hotfix branch 
+	git checkout master
+	git merge --no-ff hotfix-1.2.1
+	git tag -a 1.2.1
+
+	git checkout develop
+	git merge --no-ff hotfix-1.2.1
+	git branch -d hotfix-1.2.1
+		
