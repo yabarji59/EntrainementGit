@@ -1,0 +1,230 @@
+First User activities: 
+   ======================
+   [github.com] Create a remote repository in github.com [User should have github account]
+   
+   [local machine] Init local repo
+   [local machine] Link local repo with remote repository
+   
+   echo "# second-repo" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin https://github.com/github06022021/handson-basic.git
+   git push -u origin main
+  
+Use case: 2  
+   ============================
+   Second user activities
+   - Cloning and modfication of a file , then push to repo repo.
+   ============================
+     
+   84  mkdir second_user
+   85  cd second_user/
+   87  git clone https://github.com/github06022021/handson-basic.git
+   89  cd handson-basic/
+   91  vi README.md  [use any text editor to modify this file]
+   92  cat README.md 
+   93  git status
+   94  git add README.md 
+       git add . [for all files] 
+   95  git commit  -m "Feature 2 impl"
+   96  git push -u origin main
+   
+Use case: 3   
+   ============================   ============================   ============================
+   First User activities after second user pushed the changes
+   <change directory to local repo> 
+   Eg: /home/labsuser/handson-basic [It is a first user git repo in local machine]
+   ============================   ============================   ============================
+   $ cat README.md
+      First configuration
+      Second
+   
+   $ git pull  [it downloads all the remote changes to the local system.]
+   
+   Output>>
+        remote: Enumerating objects: 5, done.
+        remote: Counting objects: 100% (5/5), done.
+        remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+        Unpacking objects: 100% (3/3), done.
+        From https://github.com/github06022021/handson-basic
+           9cfa72a..f05c9a3  main       -> origin/main
+        Updating 9cfa72a..f05c9a3
+        Fast-forward
+         README.md | 1 +
+         1 file changed, 1 insertion(+)
+         
+    $ cat README.md
+      First configuration
+      Second
+      Third      
+         
+Use case: 4
+===============================
+Create a feature branch via Github.com [Switch branch/Tags]
+
+Second User wants to start work on some feature.
+$ git branch -r [lsit down all remote branches]
+  output>>> 
+    Feature-1
+    main
+$ git checkout <branch name>.  [download the codebase of that branch/ switch to that branch]
+  Eg:  git checkout Feature-1
+
+$ git branch
+  output>> 
+    *Feature-1.  [current working branch]
+    main
+$ vi README.md
+$ git add README.md 
+$ git commit  -m "Feature 1 impl "
+$ git push -u origin Feature-1     
+
+Branch "Feature-1" is ahead of "main" branch. So we need to merge into "main" branch
+
+Use case: 5
+===========
+Merge the Feature branch into anthoer branch/ main branch
+User should be changed to branch in which merging is required.
+
+$ git checkout main
+$ git merge <Source branch which is going to be merged>
+  Eg:
+   git merge Feature-1 [locally merge Feature-1 branch into main branch]
+$ git push -u origin main  [it updated "main" branch with Feature branch changes]
+
+Use case: 6
+=========
+To use ".gitignore" [git is looking for this file to ignore the file pattern] file: to stop tracking of unwanted files eg log, temp, intermidiate build files.
+$ cat .gitignore 
+*.txt
+tmp/
+output
+classes
+$ git add .gitignore
+$ git commit -m "Added gitignore"
+$ git push 
+
+
+Use case: 7
+===========
+To use git commit Template: To fallow the convension setup by team-mates or within organisation.
+
+$cat commit-template.txt 
+Comments:
+
+Jira:
+
+Bug:
+
+Reviwers:
+Set the commit template in git conf. Based on the scope, we can choose the level. It can be local, global and system.
+
+$ sudo git config --system commit.template /home/labsuser/commit-template.txt
+$ git commit 
+
+
+Use case 8:
+==========
+Example for different configuration levels:
+local config:
+[listing the local repo config]
+
+$ git remote add origin https://github.com/github06022021/repo-1.git
+$ git config --local -l 
+   output>>> 
+   labsuser@ubuntu1804:~/repo2/second-repo$ git config --local -l
+      core.repositoryformatversion=0
+      core.filemode=true
+      core.bare=false
+      core.logallrefupdates=true
+      """remote.origin.url=https://github.com/github06022021/second-repo.git"""
+      remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+      branch.master.remote=origin
+      branch.master.merge=refs/heads/master
+
+[Set a configuration for all repos. This configuration is independent of any repo.]
+$git config --global core.excludesfile ~/.gitignore_all_repo 
+
+[Set a configuration for all git users in the system [perticular machine]. Set the commit template at System level.
+$sudo git config --system commit.template /home/labsuser/commit-template.txt
+
+Use case 9:
+After completion of any Feature branch, we need to delete from repo Or may be wrongly created a brach.
+[Pick the branch from github repo]
+$ git branch -D Feature-1 [locally delete the branch]
+$ git push origin --delete Feature-1 []
+
+[See the origin of repo]
+$ git remote -v
+origin  https://github.com/github06022021/second-repo.git (fetch)
+origin  https://github.com/github06022021/second-repo.git (push)
+
+Use case 10:
+Diff on various commits:
+
+Same branch
+$ git diff
+<green> those are local changes
+
+Use case 11:
+To identify the diffence betwee current branch changes and cross other branch:
+
+$ git checkout F2
+$ git pull
+$ echo "db()" >>App3.java
+$ git add App3.java
+$ git diff --staged
+output>>
+   labsuser@ubuntu1804:~/repo2/second-repo$ git diff --staged
+      diff --git a/App3.java b/App3.java
+      new file mode 100644
+      index 0000000..1f5902a
+      --- /dev/null
+      +++ b/App3.java
+      @@ -0,0 +1,3 @@
+      +db()
+ 
+ $ git push 
+ 
+ [branch diff]
+ $ git diff <branch name>
+   Eg: git diff master
+   Eg: git diff F2
+   
+ [Commit difference]: For this, we need to know the commit Ids
+ $ git log
+   output>> 
+      Commit 68017db15a45604db443064bd30a87e25d553198 (HEAD -> F2, origin/F2)
+      Author: divang <divang.s@gmail.com>
+      Date:   Sun Feb 7 17:24:18 2021 +0000
+
+          app4
+
+      commit c2874f9cf8bbfd830d127e7e53955b14d0c2aed7
+      Author: divang <divang.s@gmail.com>
+      Date:   Sun Feb 7 17:11:40 2021 +0000
+
+          delete
+
+ $ git diff <CommitId 1> <CommitId 2>
+   Eg: 
+ $ git diff 68017db15a45604db443064bd30a87e25d553198 c2874f9cf8bbfd830d127e7e53955b14d0c2aed7
+ 
+ [Diff external tool]
+ $git difftool 68017db15a45604db443064bd30a87e25d553198 c2874f9cf8bbfd830d127e7e53955b14d0c2aed7
+   
+   
+  Use case 12:
+  ===========
+  How to store unfinish work and continue on other work items.
+  221  git status
+  222  git stash
+  223  git stash list
+  225  git stash apply [apply to stage but do not delete from stash]
+  228  git stash pop [it pisk from top and also remove it from stash list]
+  231  git stash drop [it picks the latest stash ]
+  236  git stash save  "App5 implment in progress..."
+  239  git stash clear
+  240  git stash list
