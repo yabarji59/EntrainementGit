@@ -5,7 +5,7 @@ Répertoire d'entrainement pour se familiariser à l'utilisation de Git.
 
 Pour commencer, récupérez sur votre disque dur les sources du projet.
 
-        git clone https://github.com/ForumEntreprisesBac5/atelier-git.git
+        git clone https://github.com/yabarji59/EntrainementGit.git
 
 ### Objectifs de cet atelier
 
